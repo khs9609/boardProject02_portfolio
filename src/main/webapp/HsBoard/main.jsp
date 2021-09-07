@@ -12,42 +12,65 @@
 	margin : auto;
 }
 header{
-	background : beige;
-	height : 100px;
+	
 }
-/* 헤더  부분 */
+/* 탑메뉴 영역 */
+header .topMenu {
+	padding : 10px;
+	background-color: #6ab04c;
+}
+header .topMenu .topMenu_login {
+	margin : 0;
+	margin-left : 1380px;
+	display : flex;
+	
+}
+header .topMenu .topMenu_login li {
+	list-style : none;
+	margin-left : 12px;
+}
+header .topMenu .topMenu_login li a {
+	text-decoration: none;
+	color : black;
+}
+
+/* 헤더  영역 */
 header .header {
 	padding : 20px;
 	display : flex;
 	justify-content: space-between;
+	background : beige;
+	height : 100px;
 }
 
 header .header .header_logo {
-	font-size : 24px;
 	font-weight: bold;
 }
-header .header .header_login ul {
+header .header .header_menu ul {
 	display : flex;
 }
-header .header .header_login ul li {
+header .header .header_menu ul li {
 	list-style: none;
-	margin-left : 12px;
+	font-size : 20px;
+	padding : 0px 10px;
 }
-header .header .header_login ul li a{
+header .header .header_menu ul li a{
 	text-decoration: none;
 	color : black;
 }
-/* 탑메뉴 부분 */
 
 
 section {
+	margin-top : 100px;
 	text-align : center;
 	height : 500px;
 }
 
 footer {
-	height : 200px;
-	background-color : #f0f0f0;
+	background-color : #2f3640;
+	padding : 50px;
+	color : white;
+	text-align : center;
 }
 
 </style>
@@ -56,27 +79,32 @@ footer {
 <div class="wrap">
 
 <header>
-
-	<div class="header">
-		<div class="header_logo">
-			Hs Company
-		</div>
-		<div class="header_login">
-			<ul>
-				<li><a href="#">로그인</a></li>
-				<li><a href="#">로그아웃</a></li>
-			</ul>
-		</div>
-	</div>
-	
-	
+<!-- 탑메뉴 영역  -->
 	<div class="topMenu">
-		<ul class="topMenu_menu">
-			<li><a href="#">회사소개</a></li>
-			<li><a href="#">자유게시판</a></li>
-			<li><a href="#">공지사항</a></li>
+		<ul class="topMenu_login">
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">회원가입</a></li>
 		</ul>
 	</div>
+
+<!-- 헤더 영역  -->
+	<div class="header">
+		<div class="header_logo">
+			<h1>Hs Company</h1>
+		</div>
+		<div class="header_menu">
+			<ul>
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">커뮤니티</a></li>
+				<li><a href="#">공지사항</a></li>
+			</ul>
+		</div>
+		<div class="none">
+			facebook		
+		</div>
+	</div>
+	
+	
 </header>
 	
 <section>
