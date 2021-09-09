@@ -90,7 +90,7 @@ footer {
 <!-- 헤더 영역  -->
 	<div class="header">
 		<div class="header_logo">
-			<h1>HS Company</h1>
+			<h1>H Company</h1>
 		</div>
 		<div class="header_menu">
 			<ul>
