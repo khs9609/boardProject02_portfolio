@@ -1,0 +1,29 @@
+@charset "UTF-8";
+header {
+    border-bottom : 1px solid #ddd;
+}
+header > div {
+    width : 90%;
+    min-width: 800px;
+    max-width: 1000px;
+    height : 80px;
+    margin : 0 auto;
+}
+header .logo {
+ float : left;
+ margin-top : 10px;
+}
+header .logo img {
+    height : 60px;
+}
+header .gnb {
+    float : right;
+}
+header .gnb li {
+    display : inline-block;
+    margin-left : 30px;
+    margin-top : 28px;
+}
+header .gnb li:first-child {
+    margin-left : 0;
+}

@@ -1,123 +1,109 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui"     uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>메인 페이지</title>
+	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  >
+	<link href="css/boardHeader/section.css" type="text/css" rel="stylesheet"  >
+    <meta charset="UTF-8">
+    <title>HS Company입니다</title>
 </head>
 <style>
-.wrap {
-	width : 1600px;
-	margin : auto;
-}
-header{
-	
-}
-/* 탑메뉴 영역 */
-header .topMenu {
-	padding : 10px;
-	background-color: #6ab04c;
-}
-header .topMenu .topMenu_login {
-	margin : 0;
-	margin-left : 1380px;
-	display : flex;
-	
-}
-header .topMenu .topMenu_login li {
-	list-style : none;
-	margin-left : 12px;
-}
-header .topMenu .topMenu_login li a {
-	text-decoration: none;
-	color : black;
-}
-
-/* 헤더  영역 */
-header .header {
-	padding : 20px;
-	display : flex;
-	justify-content: space-between;
-	background : beige;
-	height : 100px;
-}
-
-header .header .header_logo {
-	font-weight: bold;
-}
-header .header .header_menu ul {
-	display : flex;
-}
-header .header .header_menu ul li {
-	list-style: none;
-	font-size : 20px;
-	padding : 0px 10px;
-}
-header .header .header_menu ul li a{
-	text-decoration: none;
-	color : black;
-}
-
-
-section {
-	margin-top : 100px;
-	text-align : center;
-	height : 500px;
-}
-
+* {margin : 0;padding : 0;}
+a {text-decoration: none;color : inherit;}
+ul, li {list-style: none;}
 footer {
-	background-color : #2f3640;
-	padding : 50px;
-	color : white;
-	text-align : center;
+    padding : 30px 0px;
+    background-color: #000;
+    color : white;
+    text-align: center;
 }
-
 </style>
 <body>
+    <div id="wrap">
+        <header>
+			<%@ include file = "/include/header.jsp" %>
+        </header>
+        
+        <section>
+            <div class="board_wrap">
+                <div class="board_title">
+                <strong>공지사항</strong>
+                <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+                </div>
+                <div class="board_list_wrap">
+                    <div class="board_list">
+                        <div class="top">
+                            <div class="num">번호</div>
+                            <div class="title">제목</div>
+                            <div class="writer">글쓴이</div>
+                            <div class="date">작성일</div>
+                            <div class="count">조회수</div>
+                        </div>
+                        <div>
+                            <div class="num">5</div>
+                            <div class="title"><a href="#"> 글 제목이 들어갑니다</a></div>
+                            <div class="writer">김이름</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">4</div>
+                            <div class="title"><a href="#"> 글 제목이 들어갑니다</a></div>
+                            <div class="writer">김이름</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">3</div>
+                            <div class="title"><a href="#"> 글 제목이 들어갑니다</a></div>
+                            <div class="writer">김이름</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">2</div>
+                            <div class="title"><a href="#"> 글 제목이 들어갑니다</a></div>
+                            <div class="writer">김이름</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                        <div>
+                            <div class="num">1</div>
+                            <div class="title"><a href="#"> 글 제목이 들어갑니다</a></div>
+                            <div class="writer">김이름</div>
+                            <div class="date">2021.1.15</div>
+                            <div class="count">33</div>
+                        </div>
+                    </div>
+                    <div class="board_page">
+                            <a href="#" class="bt first"><<</a>
+                            <a href="#" class="bt prev"><</a>
+                                <a href="#" class="num on">1</a>
+                                <a href="#" class="num">2</a>
+                                <a href="#" class="num">3</a>
+                                <a href="#" class="num">4</a>
+                                <a href="#" class="num">5</a>
+                            <a href="#" class="bt next">></a>
+                            <a href="#" class="bt last">>></a>
+                    </div>
+                    <div class="bt_wrap">
+                        <a href="#" class="on">목록</a>
+                        <a href="boardWrite.do">작성</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            (c)김효섭 2021
+        </footer>
 
-<div class="wrap">
-
-<header>
-<!-- 탑메뉴 영역  -->
-	<div class="topMenu">
-		<ul class="topMenu_login">
-			<li><a href="#">로그인</a></li>
-			<li><a href="#">회원가입</a></li>
-		</ul>
-	</div>
-
-<!-- 헤더 영역  -->
-	<div class="header">
-		<div class="header_logo">
-			<h1>Hs Company</h1>
-		</div>
-		<div class="header_menu">
-			<ul>
-				<li><a href="#">회사소개</a></li>
-				<li><a href="#">커뮤니티</a></li>
-				<li><a href="#">공지사항</a></li>
-			</ul>
-		</div>
-		<div class="none">
-			facebook		
-		</div>
-	</div>
-	
-	
-</header>
-	
-<section>
-	테스트 메세지입니다. <br>
-	올바르게 출력이 되는지 확인해주세요.
-</section>
-	
-<footer>
-	(c)김효섭 2021 <br>
-	울산광역시 남구 무거동 (052-999-9999)
-</footer>
-	
-</div>
-
+    </div>
 </body>
 </html>
