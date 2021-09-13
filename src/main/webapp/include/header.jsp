@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  >
+<!-- 	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  > -->
 
 <meta charset="UTF-8">
 <title>header</title>

@@ -29,34 +29,34 @@ footer {
 <script>
 	function fn_submit() {
 		
-		if($.trim($("#Btitle").val()) == ""){
+		if($.trim($("#title").val()) == ""){
 			alert("제목을 입력해주세요");
-			$("#Btitle").focus();
+			$("#title").focus();
 			return false;
 		}
-		$("#Btitle").val($.trim($("#Btitle").val()) ); // 공백제거
+		$("#title").val($.trim($("#title").val()) ); // 공백제거
 		
-		if($("#Bname").val() == ""){
+		if($("#name").val() == ""){
 			alert("이름을 입력해주세요");
-			$("#Bname").focus();
+			$("#name").focus();
 			return false;
 		}
 		
-		if($("#Bpass").val() == ""){
+		if($("#pass").val() == ""){
 			alert("비밀번호를 입력해주세요");
-			$("#Bpass").focus();
+			$("#pass").focus();
 			return false;
 		}
-		$("#Bpass").val($.trim($("#Bpass").val()) ); // 공백제거
+		$("#pass").val($.trim($("#pass").val()) ); // 공백제거
 		
-		if($("#Bcontent").val() == ""){
+		if($("#content").val() == ""){
 			alert("내용을 입력해주세요");
-			$("#Bcontent").focus();
+			$("#content").focus();
 			return false;
 		}
 		
 		//ajax로 정보 넘어가게 만들기(비동기전송방식)
-		var formData : $("#frm").serialize();
+		var formData = $("#frm").serialize();
 		
 		$.ajax({
 			type : "POST",
@@ -73,7 +73,7 @@ footer {
 			},
 			error : function(){
 				alert("오류 발생 !");
-			},
+			}
 			
 			
 		});
@@ -88,8 +88,8 @@ footer {
 	<section>
 	    <div class="board_wrap">
 	        <div class="board_title">
-	        <strong>공지사항</strong>
-	        <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+	        <strong>글쓰기</strong>
+	        <p>작성한 글이 커뮤니티의 게시글물로 게시됩니다.</p>
 	        </div>
 	        
 	        <form id="frm">
@@ -98,25 +98,25 @@ footer {
 	                <div class="title">
 	                    <dl>
 	                        <dt>제목</dt>
-	                        <dd><input type="text" id="Btitle" placeholder="제목 입력"></dd>
+	                        <dd><input type="text" name="title" id="title" placeholder="제목 입력"></dd>
 	                    </dl>
 	                </div>
 	                <div class="info">
 	                    <dl>
 	                        <dt>글쓴이</dt>
-	                        <dd><input type="text" id="Bname" placeholder="글쓴이 입력"></dd>
+	                        <dd><input type="text" name="name" id="name" placeholder="글쓴이 입력"></dd>
 	                    </dl>
 	                    <dl>
 	                        <dt>비밀번호</dt>
-	                        <dd><input type="password" id="Bpass" placeholder="비밀번호 입력"></dd>
+	                        <dd><input type="password" name="pass" id="pass" placeholder="비밀번호 입력"></dd>
 	                    </dl>
 	                </div>
 	                <div class="cont">
-	                    <textarea placeholder="내용 입력" id="Bcontent"></textarea>
+	                    <textarea placeholder="내용 입력" name="content" id="content"></textarea>
 	                </div>
 	            </div>
 	            <div class="bt_wrap">
-	                <a href="main.do" class="on" onclick="fn_submit();return false;">등록</a>
+	                <a href="" class="on" onclick="fn_submit();return false;">등록</a>
 	                <a href="#">수정</a>
 	            </div>
 	        </div>
