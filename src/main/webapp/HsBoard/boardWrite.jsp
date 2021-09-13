@@ -56,7 +56,27 @@ footer {
 		}
 		
 		//ajax로 정보 넘어가게 만들기(비동기전송방식)
+		var formData : $("#frm").serialize();
 		
+		$.ajax({
+			type : "POST",
+			data : formData,
+			url : "boardWriteSave.do",
+			dataType : "text",
+			success : function(data){
+				if(data == "ok"){
+					alert("저장 완료");
+					location = "boardList.do";
+				}else{
+					alert("저장실패 \n 관리자에게 문의주세요.");
+				}
+			},
+			error : function(){
+				alert("오류 발생 !");
+			},
+			
+			
+		});
 		
 	}
 </script>
