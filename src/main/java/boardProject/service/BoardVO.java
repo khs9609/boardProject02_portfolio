@@ -10,6 +10,10 @@ public class BoardVO {
 	public int hits;
 	public String rdate;
 	
+	public int viewPage = 1;
+	public int startIndex = 1;
+	public int endIndex = 10;
+	
 	
 	public int getUnq() {
 		return unq;

@@ -17,5 +17,20 @@
 					sysdate
 			)
 	</insert>
+	
+	<select id="boardDAO.selectBoard" resultClass="egovMap">
+		SELECT b.* FROM (
+			SELECT rownum rn, a.* FROM(
+				SELECT  unq, 
+						title,
+						name,
+						hit,
+						to_char(rdate,'yyyy-mm-dd') rdate
+				FROM 
+						board
+				ORDER BY unq DESC
+			) a ) b
+				WHERE rn >= #startIndex# and rn <![CDATA[ <= ]]> #endIndex#
+	</select>
 
 </sqlMap>
