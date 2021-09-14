@@ -24,7 +24,7 @@
 				SELECT  unq, 
 						title,
 						name,
-						hit,
+						hits,
 						to_char(rdate,'yyyy-mm-dd') rdate
 				FROM 
 						board
