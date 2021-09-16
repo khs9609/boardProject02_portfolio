@@ -56,6 +56,8 @@ footer {
                             <div class="date">${list.rdate }</div>
                             <div class="count">${list.hits }</div>
                         </div>
+					<c:set var="cnt" value="${cnt-1 }"/>
+					
 					</c:forEach>
 					
                     </div>
