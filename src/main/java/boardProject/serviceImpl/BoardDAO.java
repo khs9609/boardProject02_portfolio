@@ -18,4 +18,8 @@ public class BoardDAO extends EgovAbstractDAO{
 		return list("boardDAO.selectBoard", vo);
 	}
 
+	public int totalBoard(BoardVO vo) {
+		return (int) select("boardDAO.totalBoard", vo);
+	}
+
 }

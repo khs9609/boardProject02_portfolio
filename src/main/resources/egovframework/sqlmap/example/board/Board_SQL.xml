@@ -28,9 +28,14 @@
 						to_char(rdate,'yyyy-mm-dd') rdate
 				FROM 
 						board
-				ORDER BY unq DESC
-			) a ) b
-				WHERE rn >= #startIndex# and rn <![CDATA[ <= ]]> #endIndex#
+				ORDER BY 
+					unq DESC ) a ) b
+				WHERE 
+					rn >= #startIndex# and rn <![CDATA[ <= ]]> #endIndex#
+	</select>
+	
+	<select id="boardDAO.totalBoard" resultClass="java.lang.Integer">
+		select count(*) total from board
 	</select>
 
 </sqlMap>

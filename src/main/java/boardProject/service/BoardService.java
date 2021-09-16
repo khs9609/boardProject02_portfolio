@@ -9,4 +9,7 @@ public interface BoardService {
 	
 	//게시판 목록
 	public List<?> selectBoard(BoardVO vo) throws Exception;
+	
+	//Total 개수 불러오기
+	public int totalBoard(BoardVO vo)throws Exception;
 }

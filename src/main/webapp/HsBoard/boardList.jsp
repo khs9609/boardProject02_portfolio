@@ -33,8 +33,8 @@ footer {
         <section>
             <div class="board_wrap">
                 <div class="board_title">
-                <strong>공지사항</strong>
-                <p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+                <strong>커뮤니티</strong>
+                <p>현재 커뮤니티 ${total} 개의 글이 작성되어 있습니다.</p>
                 </div>
                 <div class="board_list_wrap">
                     <div class="board_list">
@@ -46,10 +46,11 @@ footer {
                             <div class="count">조회수</div>
                         </div>
                         
-					<%-- <c:set var="" value="" /> --%>
+ 					<c:set var="cnt" value="${rowNum }"/>
+ 					
 					<c:forEach var="list" items="${resultList }">
                         <div>
-                            <div class="num" name="unq">${list.unq }</div>
+                            <div class="num" name="unq">${cnt}</div>
                             <div class="title"><a href="#"> ${list.title }</a></div>
                             <div class="writer">${list.name }</div>
                             <div class="date">${list.rdate }</div>
@@ -61,11 +62,9 @@ footer {
                     <div class="board_page">
                             <a href="#" class="bt first"><<</a>
                             <a href="#" class="bt prev"><</a>
-                                <a href="#" class="num on">1</a>
-                                <a href="#" class="num">2</a>
-                                <a href="#" class="num">3</a>
-                                <a href="#" class="num">4</a>
-                                <a href="#" class="num">5</a>
+						<c:forEach var="i" begin="1" end="${totalPage }">
+							<a href="boardList.do?viewPage=${i}" class="num">${i } </a>
+						</c:forEach>
                             <a href="#" class="bt next">></a>
                             <a href="#" class="bt last">>></a>
                     </div>

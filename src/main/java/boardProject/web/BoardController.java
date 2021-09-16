@@ -53,14 +53,42 @@ public class BoardController {
 	@RequestMapping("/boardList.do")
 	public String selectBoard(BoardVO vo, ModelMap model) throws Exception {
 		
-		int unit = 10;
+		// 1.보여질 게시물 개수를 위한 설정 값
+		int unit = 5;
 		
-		int startRowno = 1;
+		// 2.total 갯수
+		int total = boardService.totalBoard(vo);
 		
+		// 3. 보여질 페이지 수
+		int totalPage = (int)Math.ceil((double)total/unit);
+		
+		//4. 현재 보여지는 페이지
+		int viewPage = vo.getViewPage();
+		
+		//4-1. viewpage를 임의로 건드리거나, 아무것도 건드리지 않고 페이지만 접속했을 떄
+		if(viewPage > totalPage || viewPage < 1) {
+			viewPage = 1;
+		}
+		
+		//5. 시작페이지와 끝페이지 설정
+		int startIndex = (viewPage-1) * unit + 1;
+		int endIndex = startIndex + (unit - 1);
+		
+		//6. 게시글을 최신순서대로 리스트에 표시
+		int startRowno = total - (viewPage - 1) * unit;
+		
+		vo.setStartIndex(startIndex);
+		vo.setEndIndex(endIndex);
+		
+		//0. 리스트를 출력
 		List<?> list = boardService.selectBoard(vo);
 		
 		model.addAttribute("resultList", list);
+		model.addAttribute("total", total);
+		model.addAttribute("totalPage", totalPage);
 		
+		model.addAttribute("rowNum", startRowno);
+
 		return "HsBoard/boardList";
 	}
 	
