@@ -22,4 +22,8 @@ public class BoardDAO extends EgovAbstractDAO{
 		return (int) select("boardDAO.totalBoard", vo);
 	}
 
+	public BoardVO selectBoardDetail(int unq) {
+		return (BoardVO) select("boardDAO.selectBoardDetail", unq);
+	}
+
 }

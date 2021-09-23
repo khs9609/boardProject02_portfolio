@@ -11,5 +11,9 @@ public interface BoardService {
 	public List<?> selectBoard(BoardVO vo) throws Exception;
 	
 	//Total 개수 불러오기
-	public int totalBoard(BoardVO vo)throws Exception;
+	public int totalBoard(BoardVO vo) throws Exception;
+	
+	//게시판 상세보기
+	public BoardVO selectBoardDetail(int unq) throws Exception; 
+	
 }

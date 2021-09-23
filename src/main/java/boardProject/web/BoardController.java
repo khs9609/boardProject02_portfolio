@@ -92,6 +92,17 @@ public class BoardController {
 		return "HsBoard/boardList";
 	}
 	
+	/* 게시판 상세보기  */
+	@RequestMapping("/boardDetail.do")
+	public String boardDetail(BoardVO vo, ModelMap model) throws Exception {
+		
+		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
+
+		model.addAttribute("boardVO", boardVO);
+		
+		return "HsBoard/boardDetail";
+	}
+	
 	
 	
 	

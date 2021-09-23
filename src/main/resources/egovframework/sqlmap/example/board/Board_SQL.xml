@@ -3,7 +3,7 @@
 
 <sqlMap namespace="BoardSpace">
 		<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-		<typeAlias  alias="BoardVO" type="main.service.BoardVO"/>
+		<typeAlias  alias="BoardVO" type="boardProject.service.BoardVO"/>
 	
 	<insert id="boardDAO.insertBoard">
 		INSERT INTO board(unq,title,pass,name,content,hits,rdate)
@@ -35,7 +35,16 @@
 	</select>
 	
 	<select id="boardDAO.totalBoard" resultClass="java.lang.Integer">
-		select count(*) total from board
+		SELECT count(*) total FROM board
+	</select>
+	
+	<select id="boardDAO.selectBoardDetail" resultClass="BoardVO">
+		SELECT 
+			unq,title,pass,content,hits,
+			to_char(rdate,'yyyy-mm-dd') rdate
+		FROM 
+			board
+		WHERE unq=#unq#
 	</select>
 
 </sqlMap>

@@ -51,7 +51,7 @@ footer {
 					<c:forEach var="list" items="${resultList }">
                         <div>
                             <div class="num" name="unq">${cnt}</div>
-                            <div class="title"><a href="#"> ${list.title }</a></div>
+                            <div class="title"><a href="boardDetail.do?unq=${result.unq }"> ${list.title }</a></div>
                             <div class="writer">${list.name }</div>
                             <div class="date">${list.rdate }</div>
                             <div class="count">${list.hits }</div>
