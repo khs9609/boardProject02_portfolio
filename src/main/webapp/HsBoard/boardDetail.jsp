@@ -11,9 +11,10 @@
 <head>
 
 	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  >
-	<link href="css/boardWrite/boardWrite.css" type="text/css" rel="stylesheet"  >
-	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link href="css/boardWrite/boardDetail.css" type="text/css" rel="stylesheet"  >
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +46,7 @@ footer {
 	        
 	        <form id="frm">
 	        <div class="board_write_wrap">
-	            <div class="board_write">
+	            <div class="board_detail">
 	                <div class="title">
 	                    <dl>
 	                        <dt>제목</dt>

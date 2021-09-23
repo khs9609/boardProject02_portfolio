@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+.board_wrap {
+    width : 1000px;
+    margin : 100px auto;
+}
+.board_title {
+    margin-bottom : 30px;
+}
+.board_title strong {
+    font-size : 30px;
+}
+.board_title  p {
+    margin-top : 5px;
+    font-size: 15px;
+}
+
+
+
+
+/* --  게시판 글쓰기 뷰 --*/
+
+.board_detail {
+    border-top : 2px solid #000;
+}
+.board_detail .title,
+.board_detail .info {
+    padding : 15px;
+}
+.board_detail .info {
+    border-top : 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size : 0;
+}
+.board_detail .title dl {
+    font-size : 0;
+}
+
+.board_detail .info dl {
+    display : inline-block;
+    width : 50%;
+    vertical-align: middle;   
+}
+
+
+.board_detail .title dt,
+.board_detail .title dd,
+.board_detail .info dt,
+.board_detail .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size : 18px;
+}
+.board_detail .title dt,
+.board_detail .info dt {
+    width : 100px;
+}
+.board_detail .title dd {
+    width : calc(100% - 100px);
+}
+/* .board_detail .title input[type="text"],
+.board_detail .info input[type="text"],
+.board_detail .info input[type="password"] {
+    padding : 10px;
+    box-sizing: border-box;
+} */
+
+
+.board_detail .cont {
+    border-bottom: 1px solid #000;
+	display : block;
+    width : 100%;
+    height : 300px;
+    padding : 15px;
+    box-sizing: border-box;
+    resize : vertical;
+}
+/* .board_detail .cont {
+    display : block;
+    width : 100%;
+    height : 300px;
+    padding : 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize : vertical;
+} */
+
+
+/* -- 버튼 영역 --*/
+.bt_wrap {
+    margin-top : 30px;
+    font-size : 0;
+    text-align : center;
+}
+.bt_wrap a {
+    display : inline-block;
+    min-width : 80px;
+    margin-left : 10px;
+    padding : 10px;
+    border : 1px solid #000;
+    border-radius: 3px;
+    font-size : 18px;
+}
+.bt_wrap a:first-child {
+    margin-left : 0;
+}
+.bt_wrap a.on {
+    background-color: #000;
+    color : #fff;
+}
+
