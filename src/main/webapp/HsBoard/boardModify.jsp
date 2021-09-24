@@ -30,19 +30,6 @@ footer {
 <script>
 	function fn_submit() {
 		
-		if($.trim($("#title").val()) == ""){
-			alert("제목을 입력해주세요");
-			$("#title").focus();
-			return false;
-		}
-		$("#title").val($.trim($("#title").val()) ); // 공백제거
-		
-		if($("#name").val() == ""){
-			alert("이름을 입력해주세요");
-			$("#name").focus();
-			return false;
-		}
-		
 		if($("#pass").val() == ""){
 			alert("비밀번호를 입력해주세요");
 			$("#pass").focus();
@@ -62,20 +49,21 @@ footer {
 		$.ajax({
 			type : "POST",
 			data : formData,
-			url : "boardWriteSave.do",
+			url : "boardModifySave.do",
 			dataType : "text",
-			success : function(data){
-				if(data == "ok"){
-					alert("저장 완료");
+			success : function(result){
+				if(result == "1"){
+					alert("수정 완료");
 					location = "boardList.do";
+				}else if(result == "-1"){
+					alert("패스워드가 일치하지 않습니다.");
 				}else{
-					alert("저장실패 \n 관리자에게 문의주세요.");
+					alert("수정실패 \n 관리자에게 문의주세요.");
 				}
 			},
 			error : function(){
 				alert("오류 발생 !");
 			}
-			
 			
 		});
 		
@@ -89,11 +77,14 @@ footer {
 	<section>
 	    <div class="board_wrap">
 	        <div class="board_title">
-	        <strong>글쓰기</strong>
-	        <p>작성한 글이 커뮤니티의 게시글물로 게시됩니다.</p>
+	        <strong>수정하기</strong>
+	        <p>작성한 글이 커뮤니티의 게시글로 수정됩니다.</p>
 	        </div>
 	        
-	        <form id="frm">
+	        <form id="frm" name="frm">
+	        	
+	        	<input type="hidden" name="unq" value="${boardVO.unq }">
+	        	
 	        <div class="board_write_wrap">
 	            <div class="board_write">
 	                <div class="title">
@@ -113,12 +104,12 @@ footer {
 	                    </dl>
 	                </div>
 	                <div class="cont">
-	                    <textarea placeholder="내용 입력" name="content" id="content" value="${boardVO.content }"></textarea>
+	                    <textarea placeholder="내용 입력" name="content" id="content">${boardVO.content }</textarea>
 	                </div>
 	            </div>
 	            <div class="bt_wrap">
 	                <a href="#" class="on" onclick="fn_submit();return false;">저장</a>
-	                <a href="#">목록</a>
+	                <a href="boardList.do">목록</a>
 	            </div>
 	        </div>
 	        </form>

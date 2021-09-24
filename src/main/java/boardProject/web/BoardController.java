@@ -116,6 +116,22 @@ public class BoardController {
 		return "HsBoard/boardModify";
 	}
 	
+	/*게시판 수정처리*/
+	@RequestMapping("/boardModifySave.do")
+	@ResponseBody
+	public String boardModifySave(BoardVO vo) throws Exception {
+		
+		int result = 0;
+		int count = boardService.selectBoardPass(vo);
+		if(count == 1) {
+			result = boardService.updateBoard(vo);
+		}else {
+			result = -1;
+		}
+		
+		return result + "";
+	}
+	
 	
 	
 	
