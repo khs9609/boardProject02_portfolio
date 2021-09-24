@@ -106,6 +106,16 @@ public class BoardController {
 		return "HsBoard/boardDetail";
 	}
 	
+	/* 게시판 수정화면 */
+	@RequestMapping("/boardModify.do")
+	public String boardModify(BoardVO vo, ModelMap model) throws Exception{
+		
+		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
+		model.addAttribute("boardVO", boardVO);
+		
+		return "HsBoard/boardModify";
+	}
+	
 	
 	
 	

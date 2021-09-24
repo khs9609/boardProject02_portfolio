@@ -66,7 +66,7 @@ footer {
 	                <div class="cont">${boardVO.content }</div>
 	            </div>
 	            <div class="bt_wrap">
-	                <a href="#">수정</a>
+	                <a href="boardModify.do?unq=${boardVO.unq }">수정</a>
 	                <a href="boardList.do" class="on">목록</a>
 	                <a href="#" class="del_bt">삭제</a>
 	            </div>
