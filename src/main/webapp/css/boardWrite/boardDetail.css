@@ -108,4 +108,8 @@
     background-color: #000;
     color : #fff;
 }
+.bt_wrap a.del_bt {
+    background-color: #ee5253;
+    color : white;
+}
 

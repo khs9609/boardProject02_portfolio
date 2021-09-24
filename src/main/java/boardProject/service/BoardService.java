@@ -16,4 +16,7 @@ public interface BoardService {
 	//게시판 상세보기
 	public BoardVO selectBoardDetail(int unq) throws Exception; 
 	
+	//조회수 증가
+	public int updateBoardHits(int unq) throws Exception;
+	
 }

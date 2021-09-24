@@ -66,8 +66,9 @@ footer {
 	                <div class="cont">${boardVO.content }</div>
 	            </div>
 	            <div class="bt_wrap">
-	                <a href="" class="on" onclick="#">수정</a>
-	                <a href="boardList.do">목록</a>
+	                <a href="#">수정</a>
+	                <a href="boardList.do" class="on">목록</a>
+	                <a href="#" class="del_bt">삭제</a>
 	            </div>
 	        </div>
 	        </form>

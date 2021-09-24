@@ -97,6 +97,9 @@ public class BoardController {
 	public String boardDetail(BoardVO vo, ModelMap model) throws Exception {
 		
 		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
+		
+		// 조회수 증가
+		boardService.updateBoardHits(vo.getUnq());
 
 		model.addAttribute("boardVO", boardVO);
 		
