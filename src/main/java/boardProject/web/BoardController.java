@@ -98,6 +98,10 @@ public class BoardController {
 		
 		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
 		
+		String content = boardVO.getContent();
+		boardVO.setContent(content.replace("\n", "<br>"));
+		
+		
 		// 조회수 증가
 		boardService.updateBoardHits(vo.getUnq());
 
