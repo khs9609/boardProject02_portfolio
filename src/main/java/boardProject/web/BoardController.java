@@ -132,7 +132,31 @@ public class BoardController {
 		return result + "";
 	}
 	
+	/* 게시물 삭제 화면 */
+	@RequestMapping("/passWrite.do")
+	public String passWrite(int unq, ModelMap model) throws Exception {
+		
+		model.addAttribute("unq", unq);
+		
+		return "HsBoard/passWrite";
+	}
 	
+	/* 게시물 삭제 처리*/
+	@RequestMapping("/boardDelete.do")
+	@ResponseBody
+	public String boardDelete(BoardVO vo) throws Exception {
+		
+		int result = 0;
+		int count = boardService.selectBoardPass(vo);
+		
+		if(count == 1) {
+			result = boardService.deleteBoard(vo);
+		}else if(count == 0) {
+			result = -1;
+		}
+		
+		return result + "";
+	}
 	
 	
 	

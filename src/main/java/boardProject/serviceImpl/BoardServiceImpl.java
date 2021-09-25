@@ -50,4 +50,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.selectBoardPass(vo);
 	}
 
+	@Override
+	public int deleteBoard(BoardVO vo) throws Exception {
+		return boardDAO.deleteBoard(vo);
+	}
+
 }

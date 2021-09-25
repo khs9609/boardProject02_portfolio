@@ -61,5 +61,10 @@
 		SELECT COUNT(*) FROM board WHERE unq=#unq# AND pass=#pass#
 	</select>
 	
+	<delete id="boardDAO.deleteBoard">
+		DELETE FROM board
+			WHERE unq=#unq# AND pass=#pass#
+	</delete>
+	
 
 </sqlMap>
