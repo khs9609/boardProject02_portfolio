@@ -6,7 +6,7 @@
 <head>
 
 	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  >
-	<link href="css/boardWrite/passWrite.css" type="text/css" rel="stylesheet"  >
+	<link href="css/Member/loginWrite.css" type="text/css" rel="stylesheet"  >
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -30,30 +30,39 @@ footer {
 <script>
 	function fn_submit() {
 		
+		if($("#userid").val() == ""){
+			alert("아이디를 입력해주세요");
+			$("#userid").focus();
+			return false;
+		}
+		$("#userid").val($.trim($("#userid").val()) ); // 공백제거
+		
 		if($("#pass").val() == ""){
 			alert("비밀번호를 입력해주세요");
 			$("#pass").focus();
 			return false;
 		}
 		$("#pass").val($.trim($("#pass").val()) ); // 공백제거
-		var pass = $("#pass").val();
+
 		
-		//ajax로 정보 넘어가게 만들기(비동기전송방식)ㄴ
-		var sendData = "unq=${unq}&pass="+pass;
+		var userid = $("#userid").val();
+		var pass = $("#pass").val();
+		//ajax로 정보 넘어가게 만들기(비동기전송방식)
+		var sendData = "userid="+userid+"&pass="+pass;
 		
 		$.ajax({
 			type : "POST",
 			data : sendData,
-			url : "boardDelete.do",
+			url : "loginSub.do",
 			dataType : "text",
 			success : function(result){
 				if(result == "1"){
-					alert("삭제 완료");
+					alert("로그인되었습니다!");
 					location = "boardList.do";
 				}else if(result == "-1"){
-					alert("비밀번호가 일치하지 않습니다.");
+					alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
 				}else{
-					alert("삭제실패 \n 관리자에게 문의주세요.");
+					alert("로그인 실패 \n 관리자에게 문의주세요.");
 				}
 			},
 			error : function(){
@@ -72,22 +81,26 @@ footer {
 	<section>
 	    <div class="board_wrap">
 	        <div class="board_title">
-	        <strong>삭제하기</strong>
-	        <p>게시물 등록에 사용된 암호와 일치하게 입력되면 삭제처리가 됩니다.</p>
+	        <strong>로그인</strong>
+	        <p>아이디와 비밀번호를 입력하여 로그인해주세요.</p>
 	        </div>
 	        	
 	        <div class="board_write_wrap">
 	            <div class="board_detail">
-	                <div class="pass">
+	                <div class="login">
 	                    <dl>
-	                        <dt>비밀번호</dt>
+	                        <!-- <dt>아이디</dt> -->
+	                        <dd><input type="text" id="userid" name="userid" placeholder="아이디를 입력해주세요"></dd>
+	                    </dl>
+	                    <dl>
+	                        <!-- <dt>비밀번호</dt> -->
 	                        <dd><input type="password" id="pass" name="pass" placeholder="비밀번호를 입력해주세요"></dd>
 	                    </dl>
 	                </div>
 	            </div>
 	            <div class="bt_wrap">
-	                <a href="#" class="del_bt" onclick="fn_submit();return false;">삭제</a>
-	                <a href="boardList.do">목록</a>
+	                <a href="#" class="login_bt" onclick="fn_submit();return false;">로그인</a>
+	                <a href="#" class="member_bt">회원가입</a>
 	            </div>
 	        </div>
 	        

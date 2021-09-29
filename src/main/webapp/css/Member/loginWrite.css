@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+.board_wrap {
+    width : 1000px;
+    margin : 100px auto;
+}
+.board_title {
+    margin-bottom : 30px;
+}
+.board_title strong {
+    font-size : 30px;
+}
+.board_title  p {
+    margin-top : 5px;
+    font-size: 15px;
+}
+
+
+
+
+/* --  게시판 글쓰기 뷰 --*/
+
+.board_detail {
+    border-top : 2px solid #000;
+	border-bottom: 2px solid #000;
+}
+.board_detail .login {
+    padding : 15px;
+    text-align : center;
+}
+.board_detail .login dl {
+    font-size : 0;
+    margin : 10px 0px;
+}
+
+.board_detail .login dt, 
+.board_detail .login dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size : 18px;
+}
+.board_detail .login dt {
+    width : 100px;
+}
+.board_detail .login dd {
+    width : calc(100% - 100px);
+}
+
+
+.board_detail .login input[type="text"],
+.board_detail .login input[type="password"] {
+	padding : 10px;
+    width : 60%;
+    height : 50px;
+    box-sizing: border-box;
+    text-align : center;
+}
+
+/* -- 버튼 영역 --*/
+.bt_wrap {
+    margin-top : 30px;
+    font-size : 0;
+    text-align : center;
+}
+.bt_wrap a {
+    display : inline-block;
+    min-width : 80px;
+    margin-left : 10px;
+    padding : 10px;
+    border : 1px solid #000;
+    border-radius: 3px;
+    font-size : 18px;
+}
+.bt_wrap a:first-child {
+    margin-left : 0;
+}
+.bt_wrap a.login_bt {
+    background-color: #000;
+    color : white;
+}
+.bt_wrap a.member_bt {
+    background-color: #3498db;
+    color : #fff;
+}
+

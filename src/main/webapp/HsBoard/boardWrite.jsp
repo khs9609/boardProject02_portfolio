@@ -117,7 +117,7 @@ footer {
 	            </div>
 	            <div class="bt_wrap">
 	                <a href="" class="on" onclick="fn_submit();return false;">등록</a>
-	                <a href="#">수정</a>
+	                <a href="boardList.do">목록</a>
 	            </div>
 	        </div>
 	        </form>

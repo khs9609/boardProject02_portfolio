@@ -17,7 +17,7 @@
 	    <ul class="gnb">
 	        <li><a href="#">회사소개</a></li>
 	        <li><a href="/hs_boardProject/boardList.do">커뮤니티</a></li>
-	        <li><a href="#">로그인</a></li>
+	        <li><a href="loginWrite.do">로그인</a></li>
 	    </ul>
 	</div>
 </body>
