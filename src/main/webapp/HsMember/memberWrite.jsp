@@ -33,11 +33,91 @@ footer {
 	$( function() {
 	    $( "#birth" ).datepicker({
 	      changeMonth: true,
-	      changeYear: true
+	      changeYear: true,
+	      dayNamesMin : ['일','월','화','수','목','금','토'],
+	      monthNamesShort : ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	      dateFormat : 'yy-mm-dd'
 	    });
+	    
+	    
 	  });
 
+/* 	$("#member_sub").click(function() { */
 	function fn_submit() {
+		
+		var userid = $("#userid").val();
+		var pass = $("#pass").val();
+		var pass_chk = $("#pass_chk").val();
+		var name = $("#name").val();
+		var phone = $("#phone").val();
+		
+		userid = $.trim(userid);
+		pass = $.trim(pass);
+		name = $.trim(name);
+		phone = $.trim(phone);
+		
+		if(userid == ""){
+			alert("아이디를 입력해주세요");
+			$("userid").focus();
+			return false;
+		}
+		if(pass == ""){
+			alert("비밀번호를 입력해주세요");
+			$("pass").focus();
+			return false;
+		}
+		if(name == ""){
+			alert("이름을 입력해주세요");
+			$("name").focus();
+			return false;
+		}
+		if(phone == ""){
+			alert("연락처를 입력해주세요");
+			$("phone").focus();
+			return false;
+		}
+		
+		//체크박스 유무
+		if(!$(":input:radio[name=gender]:checked").val()) {
+			alert("성별을 선택해주세요");
+			return false;
+		}
+		
+		if(pass != pass_chk){
+			alert("비밀번호가 일치한지 다시 확인해주세요.");
+			return false;
+		}
+		
+		
+		$("#userid").val(userid);
+		$("#pass").val(pass);
+		$("#name").val(name);
+		$("#phone").val(phone);
+		
+		var formData = $("#frm").serialize();
+		
+		$.ajax({
+			type : "POST",
+			data : formData,
+			url : "memberWriteSave.do",
+			dataType : "text",
+			success : function(result){
+				if(result == "ok"){
+					alert("가입완료");
+					location="loginWrite.do";
+				}else{
+					alert("가입 실패. \n 다시 한 번 확인해주세요.");
+				}
+			},
+			error : function() {
+				alert("오류가 발생했습니다. \n다시 시도하거나, 관리자에게 문의주세요.");
+			}
+		});
+		
+		
+	};
+	
+/* 	function fn_submit() {
 		
 		if($.trim($("#title").val()) == ""){
 			alert("제목을 입력해주세요");
@@ -87,7 +167,7 @@ footer {
 			
 		});
 		
-	}
+	} */
 </script>
 
 <body>
@@ -123,7 +203,7 @@ footer {
 	                <div class="info">
 	                    <dl>
 	                        <dt>이름</dt>
-	                        <dd><input type="text" name="pass_chk" id="pass_chk" placeholder="이름"></dd>
+	                        <dd><input type="text" name="name" id="name" placeholder="이름"></dd>
 	                    </dl>
 	                    <dl>
 	                        <dt>성별</dt>
@@ -143,10 +223,10 @@ footer {
 						<dl>
 	                        <dt>주소</dt>
 	                        <dd>
-	                        	<input type="text" name="addr" id="addr">
+	                        	<input type="text" name="zipcode" id="zipcode">
 	                        	<button type="button" class="addr_bt">우편번호 검색</button>
 	                        	<br>
-	                        	<input type="text" name="zipcode" id="zipcode" class="zipcode">
+	                        	<input type="text" name="address" id="address" class="address">
 	                        </dd>
 	                    </dl>
 	                </div>
@@ -154,7 +234,7 @@ footer {
 	            
 	            <div class="bt_wrap">
 	                <a href="" class="on" onclick="fn_submit();return false;">가입</a>
-	                <a href="memberWrite.do" >취소</a>
+	                <a href="memberWrite.do" >취소1</a>
 	            </div>
 	        </div>
 	        </form>

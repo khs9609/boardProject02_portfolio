@@ -1,14 +1,21 @@
 package boardProject.web;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import boardProject.service.BoardVO;
+import boardProject.service.MemberService;
+import boardProject.service.MemberVO;
 
 @Controller
 public class MemberController {
 	
+	
+	@Resource(name="memberService")
+	private MemberService memberService;
 	
 	@RequestMapping("/memberWrite.do")
 	public String MemberWrite() {
@@ -17,9 +24,15 @@ public class MemberController {
 	
 	@RequestMapping("/memberWriteSave.do")
 	@ResponseBody
-	public String MemberWriteSave(BoardVO vo) throws Exception {
+	public String insertMember(MemberVO vo) throws Exception {
 		
-		return "";
+		String msg = "";
+		String result = memberService.insertMember(vo);
+		if(result == null) {
+			msg = "ok";
+		}
+		
+		return msg;
 	}
 	
 	@RequestMapping("loginWrite.do")
