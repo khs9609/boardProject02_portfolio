@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+.board_wrap {
+    width : 1000px;
+    margin : 100px auto;
+}
+.board_title {
+    margin-bottom : 30px;
+}
+.board_title strong {
+    font-size : 30px;
+}
+.board_title  p {
+    margin-top : 5px;
+    font-size: 15px;
+}
+
+
+
+
+/* --  게시판 글쓰기 뷰 --*/
+
+.member_write {
+    border-top : 2px solid #000;
+}
+.member_write .main,
+.member_write .info {
+    padding : 15px;
+}
+
+.member_write .main dl {
+    font-size : 0;
+    margin-top : 10px;
+}
+.member_write .main dl:first-child{
+    margin-top : 0px;
+}
+
+
+.member_write .info {
+    border-top : 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size : 0;
+}
+
+.member_write .info dl {
+    display : inline-block;
+    width : 50%;
+    vertical-align: middle;   
+    margin-top : 10px;
+}
+.member_write .info dl:first-child {
+	margin-top : 0px;
+}
+
+
+.member_write .main dt,
+.member_write .main dd,
+.member_write .info dt,
+.member_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size : 18px;
+}
+.member_write .main dt,
+.member_write .info dt {
+    width : 100px;
+}
+.member_write .main dd {
+    width : calc(100% - 100px);
+}
+
+.member_write .main input[type="text"],
+.member_write .main input[type="password"]{
+    width : 80%;
+}
+
+.member_write .main input[type="text"],
+.member_write .main input[type="password"],
+.member_write .info input[type="text"],
+.member_write .info input[type="password"] {
+    padding : 10px;
+    box-sizing: border-box;
+}
+.member_write .info .addr_bt {
+	padding : 0 10px;
+	height : 39.55px;
+    background-color: #000;
+    color : #fff;
+	border-radius : 3px solid #34495e;
+}
+.member_write .info .zipcode {
+	width : 100%;
+	margin-top : 10px;
+}
+
+
+/* class-cont */
+
+/* .member_write .address {
+    border-bottom: 1px solid #000;
+}
+.member_write .address input[type="text"] {
+    display : block;
+    width : 100%;
+    height : 300px;
+    padding : 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize : vertical;
+} */
+
+
+/* -- 버튼 영역 --*/
+.bt_wrap {
+    margin-top : 30px;
+    font-size : 0;
+    text-align : center;
+}
+.bt_wrap a {
+    display : inline-block;
+    min-width : 80px;
+    margin-left : 10px;
+    padding : 10px;
+    border : 1px solid #000;
+    border-radius: 3px;
+    font-size : 18px;
+}
+.bt_wrap a:first-child {
+    margin-left : 0;
+}
+.bt_wrap a.on {
+    background-color: #000;
+    color : #fff;
+}
+
