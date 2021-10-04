@@ -11,7 +11,7 @@
 	<link href="css/boardHeader/header.css" type="text/css" rel="stylesheet"  >
 	<link href="css/boardHeader/Section.css" type="text/css" rel="stylesheet"  >
     <meta charset="UTF-8">
-    <title>HS Company입니다.</title>
+    <title>HS Company입니다</title>
 </head>
 <style>
 * {margin : 0;padding : 0;}
