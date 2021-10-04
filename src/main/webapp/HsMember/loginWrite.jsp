@@ -100,7 +100,7 @@ footer {
 	            </div>
 	            <div class="bt_wrap">
 	                <a href="#" class="login_bt" onclick="fn_submit();return false;">로그인</a>
-	                <a href="#" class="member_bt">회원가입</a>
+	                <a href="memberWrite.do" class="member_bt">회원가입</a>
 	            </div>
 	        </div>
 	        
