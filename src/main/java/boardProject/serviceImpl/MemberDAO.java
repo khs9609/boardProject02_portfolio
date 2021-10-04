@@ -18,6 +18,10 @@ public class MemberDAO extends EgovAbstractDAO{
 	public List<?> selectPostList(String dong) {
 		return list("memberDAO.selectPostList", dong);
 	}
+
+	public int idCheck(String userid) {
+		return (int) select("memberDAO.idCheck",userid);
+	}
 	
 	
 	

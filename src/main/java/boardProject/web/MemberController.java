@@ -47,6 +47,21 @@ public class MemberController {
 		return "HsMember/loginWrite";
 	}
 	
+	/* 아이디 중복체크 */
+	@RequestMapping("/idCheck.do")
+	@ResponseBody
+	public String idCheck(String userid) throws Exception {
+		
+		String msg = "";
+		
+		int count = memberService.idCheck(userid);
+		if(count == 0) {
+			msg = "ok";
+		}
+		
+		return msg;
+	}
+	
 	/* 우편번호 검색 화면 */
 	@RequestMapping("/post1.do")
 	public String post1() {

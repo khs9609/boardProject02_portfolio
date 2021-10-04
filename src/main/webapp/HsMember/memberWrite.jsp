@@ -31,6 +31,8 @@ footer {
 <script>
 
 	$( function() {
+		
+		// 생년월일 선택
 	    $( "#birth" ).datepicker({
 	      changeMonth: true,
 	      changeYear: true,
@@ -39,6 +41,38 @@ footer {
 	      dateFormat : 'yy-mm-dd'
 	    });
 	    
+		//아이디체크
+		$("#idCheck").click(function(){
+			
+			var userid = $.trim( $("#userid").val() );
+			if(userid == ""){
+				alert("아이디를 입력해주세요");
+				$("#userid").focus();
+				return false;
+			}
+			
+			$.ajax({
+				
+				type : "POST",
+				data : "userid="+userid,
+				url : "idCheck.do",
+				dataType : "text",
+				success : function(msg){
+					if(msg == "ok"){
+						alert("사용 가능한 아이디입니다.");
+					}else{
+						alert("이미 사용중인 아이디입니다");
+					}
+				},
+				error : function() {
+					alert("오류 발생 \n 다시 시도 혹은 관리자에게 문의주세요");
+				}
+				
+			});
+			
+		});
+		
+	    // 우편번호 검색
 	    $("#zipcode_bt").click(function(){
 	    	var w = 500;
 	    	var h = 200;
@@ -46,6 +80,7 @@ footer {
 	    	
 	    	window.open(url, "zipcode","width="+w+",height="+h);
 	    });
+	    
 	    
 	  });
 
@@ -153,7 +188,7 @@ footer {
 	                        <dt>아이디</dt>
 	                        <dd>
 	                        <input type="text" name="userid" id="userid" placeholder="아이디">
-	                        <button type="button" class="btn1">아이디 중복체크</button>
+	                        <button type="button" class="btn1" id="idCheck">아이디 중복체크</button>
 	                        </dd>
 	                    </dl>
 	                    <dl>
@@ -180,7 +215,7 @@ footer {
 	                    </dl>
 	                    <dl>
 	                        <dt>생년월일</dt>
-	                        <dd><input type="text" name="birth" id="birth" placeholder="생년월일"></dd>
+	                        <dd><input type="text" name="birth" id="birth" placeholder="생년월일" readonly></dd>
 	                    </dl>
 	                    <dl>
 	                        <dt>연락처</dt>

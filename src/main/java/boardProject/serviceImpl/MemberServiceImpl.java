@@ -19,10 +19,15 @@ public class MemberServiceImpl implements MemberService {
 	public String insertMember(MemberVO vo) throws Exception {
 		return memberDAO.insertMember(vo);
 	}
+	@Override
+	public int idCheck(String userid) throws Exception {
+		return memberDAO.idCheck(userid);
+	}
 
 	@Override
 	public List<?> selectPostList(String dong) throws Exception {
 		return memberDAO.selectPostList(dong);
 	}
+
 
 }
