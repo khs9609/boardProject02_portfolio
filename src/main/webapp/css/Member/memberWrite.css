@@ -82,33 +82,17 @@
     padding : 10px;
     box-sizing: border-box;
 }
-.member_write .info .addr_bt {
+.member_write .main .btn1,
+.member_write .info .btn1 {
 	padding : 0 10px;
 	height : 39.55px;
     background-color: #000;
     color : #fff;
-	border-radius : 3px solid #34495e;
 }
 .member_write .info .address {
 	width : 100%;
 	margin-top : 10px;
 }
-
-
-/* class-cont */
-
-/* .member_write .address {
-    border-bottom: 1px solid #000;
-}
-.member_write .address input[type="text"] {
-    display : block;
-    width : 100%;
-    height : 300px;
-    padding : 15px;
-    box-sizing: border-box;
-    border: 0;
-    resize : vertical;
-} */
 
 
 /* -- 버튼 영역 --*/

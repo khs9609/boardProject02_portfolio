@@ -39,10 +39,16 @@ footer {
 	      dateFormat : 'yy-mm-dd'
 	    });
 	    
+	    $("#zipcode_bt").click(function(){
+	    	var w = 500;
+	    	var h = 200;
+	    	var url = "post1.do";
+	    	
+	    	window.open(url, "zipcode","width="+w+",height="+h);
+	    });
 	    
 	  });
 
-/* 	$("#member_sub").click(function() { */
 	function fn_submit() {
 		
 		var userid = $("#userid").val();
@@ -87,6 +93,14 @@ footer {
 			alert("비밀번호가 일치한지 다시 확인해주세요.");
 			return false;
 		}
+		if(zipcode == ""){
+			alert("우편번호를 검색해주세요.");
+			return false;
+		}
+		
+		/*아이디 중복체크 기능 추가*/
+		
+		/* -------------- */
 		
 		
 		$("#userid").val(userid);
@@ -117,57 +131,6 @@ footer {
 		
 	};
 	
-/* 	function fn_submit() {
-		
-		if($.trim($("#title").val()) == ""){
-			alert("제목을 입력해주세요");
-			$("#title").focus();
-			return false;
-		}
-		$("#title").val($.trim($("#title").val()) ); // 공백제거
-		
-		if($("#pass").val() == ""){
-			alert("비밀번호를 입력해주세요");
-			$("#pass").focus();
-			return false;
-		}
-		$("#pass").val($.trim($("#pass").val()) ); // 공백제거
-		
-		if($("#name").val() == ""){
-			alert("이름을 입력해주세요");
-			$("#name").focus();
-			return false;
-		}
-		if($("#phone").val() == ""){
-			alert("연락처를 입력해주세요");
-			$("#phone").focus();
-			return false;
-		}
-		
-		//ajax로 정보 넘어가게 만들기(비동기전송방식)
-		var formData = $("#frm").serialize();
-		
-		$.ajax({
-			type : "POST",
-			data : formData,
-			url : "memberWriteSave.do",
-			dataType : "text",
-			success : function(data){
-				if(data == "ok"){
-					alert("성공적으로 가입되었습니다.");
-					location = "boardList.do";
-				}else{
-					alert("가입실패 \n 관리자에게 문의주세요.");
-				}
-			},
-			error : function(){
-				alert("오류 발생 !");
-			}
-			
-			
-		});
-		
-	} */
 </script>
 
 <body>
@@ -188,7 +151,10 @@ footer {
 	                <div class="main">
 	                    <dl>
 	                        <dt>아이디</dt>
-	                        <dd><input type="text" name="userid" id="userid" placeholder="아이디"></dd>
+	                        <dd>
+	                        <input type="text" name="userid" id="userid" placeholder="아이디">
+	                        <button type="button" class="btn1">아이디 중복체크</button>
+	                        </dd>
 	                    </dl>
 	                    <dl>
 	                        <dt>비밀번호</dt>
@@ -223,10 +189,10 @@ footer {
 						<dl>
 	                        <dt>주소</dt>
 	                        <dd>
-	                        	<input type="text" name="zipcode" id="zipcode">
-	                        	<button type="button" class="addr_bt">우편번호 검색</button>
+	                        	<input type="text" name="zipcode" id="zipcode" readonly>
+	                        	<button type="button" class="btn1" id="zipcode_bt">우편번호 검색</button>
 	                        	<br>
-	                        	<input type="text" name="address" id="address" class="address">
+	                        	<input type="text" name="address" id="address" class="address" readonly>
 	                        </dd>
 	                    </dl>
 	                </div>
@@ -234,7 +200,7 @@ footer {
 	            
 	            <div class="bt_wrap">
 	                <a href="" class="on" onclick="fn_submit();return false;">가입</a>
-	                <a href="memberWrite.do" >취소1</a>
+	                <a href="memberWrite.do" >취소</a>
 	            </div>
 	        </div>
 	        </form>
