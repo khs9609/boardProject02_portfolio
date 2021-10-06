@@ -16,14 +16,22 @@ header .logo {
 header .logo img {
     height : 60px;
 }
-header .gnb {
+header .menu {
     float : right;
 }
-header .gnb li {
+header .menu li {
     display : inline-block;
-    margin-left : 30px;
-    margin-top : 28px;
+    /* pading 삭제 시 마진 값 10씩 늘려줄 것 */
+	margin-left : 20px;
+    margin-top : 18px; 
+    padding : 10px;
 }
-header .gnb li:first-child {
+header .menu li:first-child {
     margin-left : 0;
+}
+
+li:hover {
+	background: #000;
+	color : #fff;
+	transition : 0.3s ease-in-out;
 }

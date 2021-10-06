@@ -47,22 +47,21 @@ footer {
 		
 		var userid = $("#userid").val();
 		var pass = $("#pass").val();
+		
 		//ajax로 정보 넘어가게 만들기(비동기전송방식)
 		var sendData = "userid="+userid+"&pass="+pass;
 		
 		$.ajax({
 			type : "POST",
 			data : sendData,
-			url : "loginSub.do",
+			url : "loginWriteSub.do",
 			dataType : "text",
 			success : function(result){
-				if(result == "1"){
-					alert("로그인되었습니다!");
+				if(result == "ok"){
+					alert("로그인되었습니다.");
 					location = "boardList.do";
-				}else if(result == "-1"){
-					alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
 				}else{
-					alert("로그인 실패 \n 관리자에게 문의주세요.");
+					alert("아이디와 패스워드를 다시 한 번 확인해주세요.");
 				}
 			},
 			error : function(){

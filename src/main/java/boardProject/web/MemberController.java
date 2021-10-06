@@ -3,6 +3,7 @@ package boardProject.web;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,12 +41,6 @@ public class MemberController {
 		
 		return msg;
 	}
-	/* 로그인 페이지 화면 */
-	@RequestMapping("loginWrite.do")
-	public String LoginWrite() {
-		
-		return "HsMember/loginWrite";
-	}
 	
 	/* 아이디 중복체크 */
 	@RequestMapping("/idCheck.do")
@@ -78,4 +73,33 @@ public class MemberController {
 		return "HsMember/post2";
 	}
 	
+	/* 로그인 페이지 화면 */
+	@RequestMapping("loginWrite.do")
+	public String LoginWrite() {
+		
+		return "HsMember/loginWrite";
+	}
+	/*로그인 처리*/
+	@RequestMapping("loginWriteSub.do")
+	@ResponseBody
+	public String loginProcess(MemberVO vo, HttpSession session) throws Exception {
+		
+		String msg = "";
+		int count = memberService.selectMemberCount(vo);
+		if(count == 1) {
+			session.setAttribute("SessionUserId", vo.getUserid());
+			msg = "ok";
+		}
+		
+		return msg;
+	}
+	
+	/* 로그아웃 처리 */
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		
+		session.removeAttribute("SessionUserId");
+		
+		return "HsMember/loginWrite";
+	}
 }

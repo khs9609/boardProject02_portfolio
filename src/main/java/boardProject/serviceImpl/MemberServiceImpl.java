@@ -23,10 +23,13 @@ public class MemberServiceImpl implements MemberService {
 	public int idCheck(String userid) throws Exception {
 		return memberDAO.idCheck(userid);
 	}
-
 	@Override
 	public List<?> selectPostList(String dong) throws Exception {
 		return memberDAO.selectPostList(dong);
+	}
+	@Override
+	public int selectMemberCount(MemberVO vo) throws Exception {
+		return memberDAO.selectMemberCount(vo);
 	}
 
 
