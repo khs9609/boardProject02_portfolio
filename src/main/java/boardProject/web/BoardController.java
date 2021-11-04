@@ -59,7 +59,7 @@ public class BoardController {
 		// 2.total 갯수
 		int total = boardService.totalBoard(vo);
 		
-		// 3. 보여질 페이지 수
+		// 3. 보여질 게시글 수
 		int totalPage = (int)Math.ceil((double)total/unit);
 		
 		//4. 현재 보여지는 페이지
